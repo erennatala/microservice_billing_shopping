@@ -6,12 +6,13 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "invoice")
 public class Invoice {
     @Id
     @GeneratedValue
     private Long invoiceId;
     @OneToOne
-    @JoinColumn(name = "orderId", insertable = false, updatable = false)
+    @JoinColumn(name = "orderId",referencedColumnName = "id")
     private Order orderId;
     @Column(nullable = false)
     private Date dueDate;

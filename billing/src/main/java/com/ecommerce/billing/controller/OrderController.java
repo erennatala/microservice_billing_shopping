@@ -4,6 +4,7 @@ import com.ecommerce.billing.model.Order;
 import com.ecommerce.billing.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class OrderController {
         return orderService.getAllOrders();
     }
     @GetMapping("/{orderId}")
-    public Order getOrderById(Long orderId) {
+    public Order getOrderById(@PathVariable Long orderId) {
         return orderService.getOrderById(orderId);
     }
 
@@ -29,7 +30,7 @@ public class OrderController {
     }
 
     @PutMapping("/{orderId}")
-    public Order updateOrder(Order order) {
+    public Order updateOrder(@PathVariable Long orderId,@RequestBody Order order) {
         return orderService.updateOrder(order);
     }
 

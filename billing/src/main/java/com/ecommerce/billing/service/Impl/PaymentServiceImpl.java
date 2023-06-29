@@ -1,9 +1,13 @@
 package com.ecommerce.billing.service.Impl;
 
 import com.ecommerce.billing.model.Payment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PaymentServiceImpl implements com.ecommerce.billing.service.PaymentService{
     private final com.ecommerce.billing.repository.PaymentRepository paymentRepository;
+    @Autowired
     public PaymentServiceImpl(com.ecommerce.billing.repository.PaymentRepository paymentRepository) {
          this.paymentRepository = paymentRepository;
     }
