@@ -19,6 +19,19 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order addOrderItems(Long OrderId, List<String> orderItems) {
+        Order order = orderRepository.findById(OrderId).orElseThrow(() -> new RuntimeException("Order not found"));
+        List<String> existingOrderItems = order.getOrderItems();
+        existingOrderItems.addAll(orderItems);
+        return orderRepository.save(order);
+    }
+
+    @Override
+    public List<String > getOrderItems(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new RuntimeException("Order not found"));
+        return order.getOrderItems();
+    }
+    @Override
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
