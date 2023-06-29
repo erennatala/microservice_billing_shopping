@@ -3,6 +3,7 @@ package com.ecommerce.billing.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -28,6 +29,17 @@ public class Order {
         this.totalAmount = totalAmount;
         this.status = status;
         this.orderDate = orderDate;
+    }
+    @ElementCollection
+    @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
+    @Column(name = "item")
+    private List<String> orderItems;
+
+    public List<String> getOrderItems() {
+        return orderItems;
+    }
+    public void setOrderItems(List<String> orderItems) {
+        this.orderItems = orderItems;
     }
     // Getters and setters
     public Long getId() {

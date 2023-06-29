@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface OrderService {
+    Order addOrderItems(Long OrderId, List<String> orderItems);
+
+    List<String > getOrderItems(Long orderId);
+
     List<Order> getAllOrders();
     Order getOrderById(Long orderId);
     Order createOrder(Order order);
