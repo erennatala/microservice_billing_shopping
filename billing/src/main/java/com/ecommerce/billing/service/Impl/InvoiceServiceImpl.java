@@ -2,11 +2,14 @@ package com.ecommerce.billing.service.Impl;
 import com.ecommerce.billing.model.Invoice;
 import com.ecommerce.billing.repository.InvoiceRepository;
 import com.ecommerce.billing.service.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceRepository invoiceRepository;
+    @Autowired
     public InvoiceServiceImpl(InvoiceRepository invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
     }

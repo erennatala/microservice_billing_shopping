@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "payment")
+
 public class Payment {
     @Id
     @GeneratedValue
     private Long paymentId;
-    @Column(nullable = false)
-    private Long orderId;
     @Column(nullable = false)
     private double amount;
     @Column(nullable = false)
@@ -18,12 +18,11 @@ public class Payment {
     @Column(nullable = false)
     private LocalDate paymentDate;
     @ManyToOne
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "orderId",referencedColumnName = "id")
     private Order order;
     public Payment() {
     }
-    public Payment(Long orderId, double amount, String status, LocalDate paymentDate) {
-        this.orderId = orderId;
+    public Payment( double amount, String status, LocalDate paymentDate) {
         this.amount = amount;
         this.status = status;
         this.paymentDate = paymentDate;
@@ -34,12 +33,7 @@ public class Payment {
     public void setPaymentId(Long paymentID) {
         this.paymentId = paymentID;
     }
-    public Long getOrderId() {
-        return orderId;
-    }
-    public void setOrderId(Long orderID) {
-        this.orderId = orderID;
-    }
+
     public double getAmount() {
         return amount;
     }

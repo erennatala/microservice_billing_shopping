@@ -1,17 +1,16 @@
 package com.ecommerce.billing.model;
 
 import jakarta.persistence.*;
-import org.aspectj.weaver.ast.Or;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    private Long id;
     @Column(nullable = false)
     private Long customerId;
     @Column(nullable = false)
@@ -31,11 +30,11 @@ public class Order {
         this.orderDate = orderDate;
     }
     // Getters and setters
-    public Long getOrderId() {
-        return orderId;
+    public Long getId() {
+        return id;
     }
-    public void setOrderId(Long orderID) {
-        this.orderId = orderID;
+    public void setId(Long orderID) {
+        this.id = orderID;
     }
     public Long getCustomerId() {
         return customerId;

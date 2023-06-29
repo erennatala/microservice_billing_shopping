@@ -1,6 +1,8 @@
 package com.ecommerce.billing.service;
-
 import com.ecommerce.billing.model.Invoice;
+import org.springframework.stereotype.Service;
+
+
 import java.util.List;
 
 public interface InvoiceService {

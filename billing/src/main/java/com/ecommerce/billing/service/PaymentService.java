@@ -1,6 +1,7 @@
 package com.ecommerce.billing.service;
 
 import com.ecommerce.billing.model.Payment;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
